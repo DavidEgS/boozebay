@@ -21,7 +21,7 @@ ws.rows.each_with_index do |row, idx|
     location = pubs_data['location'].split[-2]
     p location.split(',').first
     User.create(
-        email: "#{pubs_data['company_name'].split.join('.')}@email.com", 
+        email: "#{pubs_data['company_name'].split.join('.')}@email.com",
         password: "123456",
         company_name: pubs_data['company_name'],
         location: location.split(',').first.downcase.capitalize.to_s
@@ -36,7 +36,21 @@ p User.create(email: 'fourpure@email.com', password: '123456', brand: true, comp
 User.create(email: 'sacred@email.com', password: '123456', brand: true, company_name: 'Sacred Gin Ltd', location: 'London', description: 'Gin maker')
 Listing.create(user_id: User.where(brand: false).sample.id, category: 'gin', estimated_volume: 100, min_bid: 200, unit_type: 'bottles', description: 'My pub would like to change the house gin', requirements: 'POS', deal_start_date: Date.current, deal_end_date: 30.days.from_now, auction_end_time: 1.days.from_now)
 Listing.create(user_id: User.where(brand: false).sample.id, category: 'beer', estimated_volume: 200, min_bid: 400, unit_type: 'kegs', description: 'My pub would like to change the beer offer in a very busy place', requirements: 'POS', deal_start_date: Date.current, deal_end_date: 30.days.from_now, auction_end_time: 1.days.from_now)
-Listing.create(user_id: User.where(brand: false).sample.id, category: 'wine', estimated_volume: 500, min_bid: 1000, unit_type: 'botles', description: 'My pub would like to change the wine list offer in a very busy place', requirements: 'POS', deal_start_date: Date.current, deal_end_date: 30.days.from_now, auction_end_time: 1.days.from_now)
+Listing.create(user_id: User.where(brand: false).sample.id, category: 'wine', estimated_volume: 500, min_bid: 1000, unit_type: 'bottles', description: 'My pub would like to change the wine list offer in a very busy place', requirements: 'POS', deal_start_date: Date.current, deal_end_date: 30.days.from_now, auction_end_time: 1.days.from_now)
 Bid.create(listing_id: Listing.where(category: 'gin').sample.id, user_id: User.find_by(company_name: 'Sacred Gin Ltd').id, amount: 250, sweetner: 'POS poster')
 Bid.create(listing_id: Listing.where(category: 'beer').sample.id, user_id: User.find_by(company_name: 'Magic Rock').id, amount: 500, sweetner: 'free stock and branded glasses')
 Bid.create(listing_id: Listing.where(category: 'beer').sample.id, user_id: User.find_by(company_name: 'Fourpure').id, amount: 600, sweetner: 'branded glasses and events')
+
+Listing.create(user_id: User.where(brand: false).sample.id, category: '', estimated_volume: 100, min_bid: 200, unit_type: 'bottles', description: 'My pub would house red for steak night', requirements: 'POS', deal_start_date: Date.current, deal_end_date: 30.days.from_now, auction_end_time: 1.days.from_now)
+Listing.create(user_id: User.where(brand: false).sample.id, category: 'beer', estimated_volume: 200, min_bid: 400, unit_type: 'kegs', description: 'My pub would like to change the beer offer in a very busy place', requirements: 'POS', deal_start_date: Date.current, deal_end_date: 30.days.from_now, auction_end_time: 1.days.from_now)
+Listing.create(user_id: User.where(brand: false).sample.id, category: 'wine', estimated_volume: 500, min_bid: 1000, unit_type: 'bottles', description: 'My pub would like to change the wine list offer in a very busy place', requirements: 'POS', deal_start_date: Date.current, deal_end_date: 30.days.from_now, auction_end_time: 1.days.from_now)
+Bid.create(listing_id: Listing.where(category: 'gin').sample.id, user_id: User.find_by(company_name: 'Sacred Gin Ltd').id, amount: 125, sweetner: 'Sparkle barker')
+Bid.create(listing_id: Listing.where(category: 'beer').sample.id, user_id: User.find_by(company_name: 'Magic Rock').id, amount: 500, sweetner: 'Tshirts')
+Bid.create(listing_id: Listing.where(category: 'beer').sample.id, user_id: User.find_by(company_name: 'Fourpure').id, amount: 600, sweetner: '400 flyers')
+
+Listing.create(user_id: User.where(brand: false).sample.id, category: 'gin', estimated_volume: 100, min_bid: 200, unit_type: 'bottles', description: 'My pub would like to change the house gin', requirements: 'POS', deal_start_date: Date.current, deal_end_date: 30.days.from_now, auction_end_time: 1.days.from_now)
+Listing.create(user_id: User.where(brand: false).sample.id, category: 'beer', estimated_volume: 200, min_bid: 400, unit_type: 'cans', description: 'My pub would like to change the beer offer in a very busy place', requirements: 'POS', deal_start_date: Date.current, deal_end_date: 30.days.from_now, auction_end_time: 1.days.from_now)
+Listing.create(user_id: User.where(brand: false).sample.id, category: 'wine', estimated_volume: 500, min_bid: 1000, unit_type: 'bottles', description: 'My pub would like to change the wine list offer in a very busy place', requirements: 'POS', deal_start_date: Date.current, deal_end_date: 30.days.from_now, auction_end_time: 1.days.from_now)
+Bid.create(listing_id: Listing.where(category: 'gin').sample.id, user_id: User.find_by(company_name: 'Sacred Gin Ltd').id, amount: 370, sweetner: 'POS poster')
+Bid.create(listing_id: Listing.where(category: 'beer').sample.id, user_id: User.find_by(company_name: 'Magic Rock').id, amount: 230, sweetner: 'Event give away tickets and poster')
+Bid.create(listing_id: Listing.where(category: 'beer').sample.id, user_id: User.find_by(company_name: 'Fourpure').id, amount: 400)
