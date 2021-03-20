@@ -20,6 +20,8 @@ gem 'devise'
 # gem 'devise-jwt'
 gem 'simple_token_authentication'
 gem 'google_drive'
+gem 'letter_opener', group: :development
+
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
