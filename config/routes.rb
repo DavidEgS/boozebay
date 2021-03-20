@@ -15,8 +15,9 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :listings, only: %I[index show create update]
       resources :sessions, only: [ :create, :delete ]
-      resources :bids, only: %I[create update]
+      resources :bids, only: %I[show create update]
       post 'login', to: 'sessions#login'
     end
   end
+  get 'pages/:id/pdf', to: 'pages#pdf'
 end

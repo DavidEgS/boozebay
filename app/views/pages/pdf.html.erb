@@ -1,0 +1,62 @@
+<div>
+  <p>
+  SALE OF GOODS AGREEMENT
+ </p>
+This Sale of Goods Agreement is made on <%= Date.today.strftime("%A %B %Y") %> by and between:
+<p>
+<%= @bid.user.company_name %> , having its registered office at <%= @bid.user.location %>, hereinafter referred as the Seller;
+</p>
+AND
+<p>
+<%= @bid.listing.user.company_name %>, having its registered office at <%= @bid.listing.user.location %>, hereinafter referred as the Buyer;
+</p>
+The seller agrees to provide <%= @bid.listing.estimated_volume %>  <%= "#{@bid.listing.unit_type} of #{@bid.listing.category} "%> and will additionally pay <%= @bid.amount %> <%= "and #{@bid.sweetner}" if @bid.sweetner %><p>
+WHEREAS:</p>
+<p>
+Based on mutual covenants, negotiations and valuable consideration, The Parties have entered into the following
+</p>
+
+
+2. Subject of the Agreement:
+<p>
+The Subject-matter of this Contract is particularly the obligation of the Seller to deliver goods specified in the Exhibit No. 1 hereto to the Buyer and to transfer the property in goods to the Buyer under the terms and conditions herein and the obligation of the Buyer to accept the delivered goods from the Seller and to pay the agreed purchase price.
+</p>
+3. Sale of Goods:
+<ol>
+
+<li>The Seller hereby agrees to deliver the Buyer goods (movables) specified in Exhibit No. 1 hereto (hereinafter referred to as the 'Goods') and in the time, quality and quantity specified in Exhibit No. 1 hereto. The Buyer shall collect the Goods and pay Seller for Goods the purchase price stipulated to the Seller.</li>
+
+<li>The Seller shall deliver the Goods to Buyer's carrier on [Date of Delivery] during regular business hours. Seller shall notify Buyer regarding the delivery of Goods to carrier by fax message. </li>
+
+<li> The title in the Goods shall pass to Buyer immediately upon delivery of Goods to the Buyer's carrier. Risk of damage to or loss of the Goods shall pass to the Buyer at the time of delivery.</li>
+</ol>
+<p>
+4. Purchase Price:
+</p>
+<ol>
+<li> The Buyer shall pay the Seller the purchase price of the goods amounting  [Amount] (hereinafter referred to as the 'Purchase Price').</li>
+
+<li>The Purchase Price shall be due upon the invoice issued and sent by the Seller not later than 10 days from delivery and collection of Goods by the Buyer. The invoice shall be payable not later than 21 days from the issue of the invoice by Seller.</li>
+
+<li>If the Buyer fails to pay the purchase price, the Seller shall have the right to default interest at the rate of [Rate] % of outstanding amount for each day of default without prejudice to any claims for damage pursuant.</li>
+</ol>
+<p>5. Product Liability:</p>
+
+
+<ol><li>The Seller shall be liable for any lack of conformity in Goods which exists at the time when the risk passes to the Buyer and which occurs within [number] months from the date of delivery of Goods by the Buyer's carrier. The Seller declares that the Goods during a period of [Number]
+months from the date of collection by the Buyer's carrier will remain fit for the purposes for which the Goods would ordinarily be used or during this period will retain specified qualities (hereinafter referred to as the "Warranty Period").</li></ol>
+<p>7. Arbitration Clause:</p>
+
+
+Any claim, matter or controversy arising out of or relating to this Agreement, or the breach thereof, shall be decided by arbitration in accordance with the Arbitration Act, 1996. The Venue of Arbitration shall be [City].
+
+
+<br>
+<br>
+
+<br>
+
+<p>For Buyer For Seller</p>
+
+
+By: _________________________ By: ________________________</div>
