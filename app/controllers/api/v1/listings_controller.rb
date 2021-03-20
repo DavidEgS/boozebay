@@ -2,7 +2,11 @@ class Api::V1::ListingsController < Api::V1::BaseController
   before_action :set_restaurant, only: [ :show, :update ]
 
   def index
-    @listings = Listing.all
+    if params.has_key?(:query) && params[:query] != ""
+      @listings = Listing.where("category = #{params[:query]}")
+    else
+      @listings = Listing.all
+    end
   end
 
   def show
