@@ -24,7 +24,7 @@ class Api::V1::SessionsController < Api::V1::BaseController
     private
   
     def user_params
-      params.permit(:email, :password)
+      params.permit(:email, :password, :location, :brand, :description, :company_name)
     end
   end
   
