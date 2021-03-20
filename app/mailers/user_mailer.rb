@@ -8,9 +8,9 @@ class UserMailer < ApplicationMailer
   def contract
     @bid = params[:bid]
 
-    attachments["pages/#{@bid.id}/pdf.pdf"] = WickedPdf.new.pdf_from_string(
-      render_to_string(pdf: 'pages/pdf', page_size: 'A4', template: 'pages/pdf.html.erb', layout: 'pdf.html'), { 
-        orientation: "Portrait", 
+    attachments["#{@bid.listing.user.company_name}.pdf"] = WickedPdf.new.pdf_from_string(
+      render_to_string(pdf: 'pages/pdf', page_size: 'A4', template: 'pages/pdf.html.erb', layout: 'pdf.html'), {
+        orientation: "Portrait",
         lowquality: true,
         zoom: 1,
         dpi: 75 }
