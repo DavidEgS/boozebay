@@ -1,0 +1,2 @@
+GMAIL_ADDRESS=noreplywineorders@gmail.com
+GMAIL_APP_PASSWORD=ebrwqrnmhshrkvms
