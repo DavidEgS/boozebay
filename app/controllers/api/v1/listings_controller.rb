@@ -5,7 +5,7 @@ class Api::V1::ListingsController < Api::V1::BaseController
 
   def index
     if params.has_key?(:query) && params[:query] != ""
-      @listings = Listing.where("category = #{params[:query]}")
+      @listings = Listing.where(category: params[:query])
     else
       @listings = Listing.all
     end
