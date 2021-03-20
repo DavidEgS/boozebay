@@ -19,6 +19,8 @@ gem 'jbuilder', '~> 2.7'
 gem 'devise'
 # gem 'devise-jwt'
 gem 'simple_token_authentication'
+gem 'google_drive'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
