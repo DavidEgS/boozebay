@@ -1,18 +1,42 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-
-User.destroy_all
 Listing.destroy_all
 Bid.destroy_all
+User.destroy_all
 
-pub_owner = User.create(email: "lister@test.com", password: "123456", company_name: "pub", location: "Hoxton", description: "I have a loevly pub")
-test_listing = Listing.create(user_id: pub_owner.id, category: "larger", estimated_volume: 5, min_bid: 100, unit_type: "bottles", description: "My lovely pub want tasty beer", requirements: "POS", deal_start_date: Date.current, deal_end_date: 30.days.from_now, auction_end_time: 1.days.from_now )
+# pub_owner = User.create(email: "lister@test.com", password: "123456", company_name: "pub", location: "Hoxton", description: "I have a loevly pub")
+# test_listing = Listing.create(user_id: pub_owner.id, category: "larger", estimated_volume: 5, min_bid: 100, unit_type: "bottles", description: "My lovely pub want tasty beer", requirements: "POS", deal_start_date: Date.current, deal_end_date: 30.days.from_now, auction_end_time: 1.days.from_now )
 
-brander = User.create(email: "brander@test.com", password: "123456", company_name: "drinks maker", location: "Shoreditch", description: "I purvey the best largers")
+# brander = User.create(email: "brander@test.com", password: "123456", company_name: "drinks maker", location: "Shoreditch", description: "I purvey the best largers")
 
-Bid.create(listing_id: test_listing.id, user_id: brander.id, amount: 200, sweetner: 'POS poster')
+# Bid.create(listing_id: test_listing.id, user_id: brander.id, amount: 200, sweetner: 'POS poster')
+
+session = GoogleDrive::Session.from_config("config.json")
+# Initialize the sheet we are going to work with
+ws = session.spreadsheet_by_key("1B1Qx7BRc5hF8t6IvF6HRa82ktGnu17tiMiKcSZA5oxQ").worksheets.first #CHECK KEY IF IT IS THE RIGHT ONE OR THE TRIAL ONE
+
+headers = ws.rows.first
+
+ws.rows.each_with_index do |row, idx|
+    next if idx.zero?
+    pubs_data = Hash[[headers, row].transpose]
+    location = pubs_data['location'].split[-2]
+    p location.split(',').first
+    User.create(
+        email: "#{pubs_data['company_name'].split.join('.')}@email.com", 
+        password: "123456",
+        company_name: pubs_data['company_name'],
+        location: location.split(',').first.downcase.capitalize.to_s
+    )
+end
+
+User.create(email: 'enotria@email.com', password: '123456', brand: true, company_name: 'Enotria', location: 'London', description: 'Drinks Trade company')
+User.create(email: 'speciality@email.com', password: '123456', brand: true, company_name: 'Speciality Drinks', location: 'London', description: 'Drinks Trade company')
+User.create(email: 'fever@email.com', password: '123456', brand: true, company_name: 'Fever Tree', location: 'London', description: 'Soft Drinks Company')
+User.create(email: 'magic@email.com', password: '123456', brand: true, company_name: 'Magic Rock', location: 'London', description: 'Beer Manufacturer')
+p User.create(email: 'fourpure@email.com', password: '123456', brand: true, company_name: 'Fourpure', location: 'London', description: 'Beer Manufacturer')
+User.create(email: 'sacred@email.com', password: '123456', brand: true, company_name: 'Sacred Gin Ltd', location: 'London', description: 'Gin maker')
+Listing.create(user_id: User.where(brand: false).sample.id, category: 'gin', estimated_volume: 100, min_bid: 200, unit_type: 'bottles', description: 'My pub would like to change the house gin', requirements: 'POS', deal_start_date: Date.current, deal_end_date: 30.days.from_now, auction_end_time: 1.days.from_now)
+Listing.create(user_id: User.where(brand: false).sample.id, category: 'beer', estimated_volume: 200, min_bid: 400, unit_type: 'kegs', description: 'My pub would like to change the beer offer in a very busy place', requirements: 'POS', deal_start_date: Date.current, deal_end_date: 30.days.from_now, auction_end_time: 1.days.from_now)
+Listing.create(user_id: User.where(brand: false).sample.id, category: 'wine', estimated_volume: 500, min_bid: 1000, unit_type: 'botles', description: 'My pub would like to change the wine list offer in a very busy place', requirements: 'POS', deal_start_date: Date.current, deal_end_date: 30.days.from_now, auction_end_time: 1.days.from_now)
+Bid.create(listing_id: Listing.where(category: 'gin').sample.id, user_id: User.find_by(company_name: 'Sacred Gin Ltd').id, amount: 250, sweetner: 'POS poster')
+Bid.create(listing_id: Listing.where(category: 'beer').sample.id, user_id: User.find_by(company_name: 'Magic Rock').id, amount: 500, sweetner: 'free stock and branded glasses')
+Bid.create(listing_id: Listing.where(category: 'beer').sample.id, user_id: User.find_by(company_name: 'Fourpure').id, amount: 600, sweetner: 'branded glasses and events')
