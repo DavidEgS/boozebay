@@ -29,6 +29,10 @@ gem 'letter_opener', group: :development
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
+# pdf wizbottery
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
+
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 gem 'rack-cors'
 
