@@ -21,6 +21,7 @@ gem 'devise'
 gem 'simple_token_authentication'
 gem 'google_drive'
 gem 'letter_opener', group: :development
+gem 'dotenv-rails', groups: [:development, :test]
 
 
 # Use Active Storage variant

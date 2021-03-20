@@ -8,6 +8,6 @@ class UserMailer < ApplicationMailer
   def contract
     @bid = params[:bid]
 
-    mail(to: @user.email, subject: 'Welcome to Le Wagon', from:)
+    mail(to: 'fernando.requeni@outlook.com', subject: 'Welcome to Le Wagon')
   end
 end
