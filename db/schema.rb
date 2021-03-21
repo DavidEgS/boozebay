@@ -27,6 +27,14 @@ ActiveRecord::Schema.define(version: 2021_03_21_103738) do
     t.index ["user_id"], name: "index_bids_on_user_id"
   end
 
+  create_table "jwt_blacklists", force: :cascade do |t|
+    t.string "jti"
+    t.datetime "exp"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["jti"], name: "index_jwt_blacklists_on_jti"
+  end
+
   create_table "listings", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "category"
