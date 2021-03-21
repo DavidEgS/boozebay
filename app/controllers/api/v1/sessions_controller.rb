@@ -12,7 +12,7 @@ class Api::V1::SessionsController < Api::V1::BaseController
     user = User.where(email: params[:email]).first
 
     if user&.valid_password?(params[:password])
-      render json: user.as_json(only: [:email, :authentication_token, :brand, :description, :location, :company_name]), status: :created
+      render json: user.as_json(only: [:email, :authentication_token, :brand, :description, :location, :company_name, :picture]), status: :created
     else
       head(:unauthorized)
     end
