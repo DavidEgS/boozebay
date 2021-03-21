@@ -16,6 +16,6 @@ class UserMailer < ApplicationMailer
         dpi: 75 }
     )
 
-    mail(to: 'fernando.requeni@outlook.com', subject: 'Welcome to Le Wagon', bid: @bid)
+    mail(to: 'fernando.requeni@outlook.com', subject: 'Contract Bid', from: 'Eztenda <noreplywineorders@gmail.com>', bid: @bid)
   end
 end
