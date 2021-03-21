@@ -41,6 +41,10 @@ p User.create(email: 'fourpure@email.com', password: '123456', brand: true, comp
 User.create(email: 'sacred@email.com', password: '123456', brand: true, company_name: 'Sacred Gin Ltd', location: 'London', description: 'Gin maker')
 User.create(email: 'exale@email.com', password: '123456', brand: true, company_name:'Exale Brewing', location: 'London', description: 'Beer Manufacturer')
 User.create(email: 'boutinot@email.com', password: '123456', brand: true, company_name:'Boutinot Wines', location: 'London', description: 'Wine supplier')
+User.create(email: 'alliance@email.com', password: '123456', brand: true, company_name:'Alliance Wines', location: 'London', description: 'Wine supplier')
+User.create(email: 'flint@email.com', password: '123456', brand: true, company_name:'Flint Wines', location: 'London', description: 'Wine supplier')
+User.create(email: 'modal@email.com', password: '123456', brand: true, company_name:'Modal Wines', location: 'London', description: 'Wine supplier')
+User.create(email: 'thorman@email.com', password: '123456', brand: true, company_name:'Thorman Hunt', location: 'London', description: 'Wine supplier')
 User.create(email: 'karma@email.com', password: '123456', brand: true, company_name: 'Karma Cola', location: 'London', description: 'Soft Drinks Brand')
 
 
@@ -48,10 +52,15 @@ User.create(email: 'karma@email.com', password: '123456', brand: true, company_n
 # LISTINGS
 Listing.create(user_id: User.where(brand: false).sample.id, category: 'gin', estimated_volume: 100, min_bid: 200, unit_type: 'bottles', description: 'My pub would like to change the house gin', requirements: 'POS', deal_start_date: Date.current, deal_end_date: 30.days.from_now, auction_end_time: 1.days.from_now)
 Listing.create(user_id: User.where(brand: false).sample.id, category: 'gin', estimated_volume: 100, min_bid: 200, unit_type: 'bottles', description: 'My pub would like to change the house gin', requirements: 'POS', deal_start_date: Date.current, deal_end_date: 30.days.from_now, auction_end_time: 1.days.from_now)
+Listing.create(user_id: User.where(brand: false).sample.id, category: 'vodka', estimated_volume: 50, min_bid: 200, unit_type: 'bottles', description: 'Looking for a house vodka')
+Listing.create(user_id: User.where(brand: false).sample.id, category: 'vodka', estimated_volume: 50, min_bid: 200, unit_type: 'bottles', description: 'Looking for a premium vodka')
+
 
 Listing.create(user_id: User.where(brand: false).sample.id, category: 'beer', estimated_volume: 200, min_bid: 400, unit_type: 'kegs', description: 'My pub would like to change the beer offer in a very busy place', requirements: 'POS', deal_start_date: Date.current, deal_end_date: 30.days.from_now, auction_end_time: 1.days.from_now)
 Listing.create(user_id: User.where(brand: false).sample.id, category: 'beer', estimated_volume: 200, min_bid: 400, unit_type: 'kegs', description: 'My pub would like to change the beer offer in a very busy place', requirements: 'POS', deal_start_date: Date.current, deal_end_date: 30.days.from_now, auction_end_time: 1.days.from_now)
 Listing.create(user_id: User.where(brand: false).sample.id, category: 'beer', estimated_volume: 200, min_bid: 400, unit_type: 'cans', description: 'My pub would like to change the beer offer in a very busy place', requirements: 'POS', deal_start_date: Date.current, deal_end_date: 30.days.from_now, auction_end_time: 1.days.from_now)
+Listing.create(user_id: User.where(brand: false).sample.id, category: 'beer', estimated_volume: 200, min_bid: 400, unit_type: 'cans', description: 'Looking for handcreaft beer', requirements: 'POS', deal_start_date: Date.current, deal_end_date: 30.days.from_now, auction_end_time: 1.days.from_now)
+
 
 Listing.create(user_id: User.where(brand: false).sample.id, category: 'wine', estimated_volume: 500, min_bid: 1000, unit_type: 'bottles', description: 'My pub would like to change the wine list offer in a very busy place', requirements: 'POS', deal_start_date: Date.current, deal_end_date: 30.days.from_now, auction_end_time: 1.days.from_now)
 Listing.create(user_id: User.where(brand: false).sample.id, category: 'wine', estimated_volume: 100, min_bid: 200, unit_type: 'bottles', description: 'My pub would like house red for steak night', requirements: 'POS', deal_start_date: Date.current, deal_end_date: 30.days.from_now, auction_end_time: 1.days.from_now)
@@ -60,27 +69,35 @@ Listing.create(user_id: User.where(brand: false).sample.id, category: 'wine', es
 Listing.create(user_id: User.where(brand: false).sample.id, category: 'wine', estimated_volume: 1000, min_bid: 1500, unit_type: 'bottles', description: 'Looking for a new soft drinks supplier')
 
 
+
 # BIDS
-Bid.create(listing_id: Listing.where(category: 'gin').sample.id, user_id: User.find_by(company_name: 'Sacred Gin Ltd').id, amount: 250, sweetner: 'POS poster')
-Bid.create(listing_id: Listing.where(category: 'gin').sample.id, user_id: User.find_by(company_name: 'Sacred Gin Ltd').id, amount: 250, sweetner: 'POS poster')
-Bid.create(listing_id: Listing.where(category: 'gin').sample.id, user_id: User.find_by(company_name: 'Enotria').id, amount: 125, sweetner: 'Sparkle barker')
-Bid.create(listing_id: Listing.where(category: 'gin').sample.id, user_id: User.find_by(company_name: 'Enotria').id, amount: 125, sweetner: 'Sparkle barker')
-Bid.create(listing_id: Listing.where(category: 'gin').sample.id, user_id: User.find_by(company_name: 'Speciality Drinks').id, amount: 370, sweetner: 'POS poster')
-Bid.create(listing_id: Listing.where(category: 'gin').sample.id, user_id: User.find_by(company_name: 'Speciality Drinks').id, amount: 370, sweetner: 'POS poster')
-Bid.create(listing_id: Listing.where(category: 'gin').sample.id, user_id: User.find_by(company_name: 'Black Cow').id, amount:200, sweetner: 'Branded glassware and marketing')
-Bid.create(listing_id: Listing.where(category: 'gin').sample.id, user_id: User.find_by(company_name: 'Black Cow').id, amount:200, sweetner: 'Branded glassware and marketing')
 
+Listing.where(category:'vodka').each do |listing|
+    Bid.create(listing_id: listing.id, user_id: User.find_by(company_name: 'Sacred Gin Ltd').id, amount: 250, sweetner: 'POS poster')
+    Bid.create(listing_id: listing.id, user_id: User.find_by(company_name: 'Enotria').id, amount: 125, sweetner: 'Sparkle barker')
+    Bid.create(listing_id: listing.id, user_id: User.find_by(company_name: 'Speciality Drinks').id, amount: 370, sweetner: 'POS poster')
+    Bid.create(listing_id: listing.id, user_id: User.find_by(company_name: 'Black Cow').id, amount:200, sweetner: 'Branded glassware and marketing')
+end
 
+Listing.where(category: 'gin').each do |listing|
+    Bid.create(listing_id: listing.id, user_id: User.find_by(company_name: 'Sacred Gin Ltd').id, amount: 250, sweetner: 'POS poster')
+    Bid.create(listing_id: listing.id, user_id: User.find_by(company_name: 'Enotria').id, amount: 125, sweetner: 'Sparkle barker')
+    Bid.create(listing_id: listing.id, user_id: User.find_by(company_name: 'Speciality Drinks').id, amount: 370, sweetner: 'POS poster')
+    Bid.create(listing_id: listing.id, user_id: User.find_by(company_name: 'Black Cow').id, amount:200, sweetner: 'Branded glassware and marketing')
+end
 
-Bid.create(listing_id: Listing.where(category: 'beer').sample.id, user_id: User.find_by(company_name: 'Magic Rock').id, amount: 500, sweetner: 'free stock and branded glasses')
-Bid.create(listing_id: Listing.where(category: 'beer').sample.id, user_id: User.find_by(company_name: 'Fourpure').id, amount: 600, sweetner: 'branded glasses and events')
-Bid.create(listing_id: Listing.where(category: 'beer').sample.id, user_id: User.find_by(company_name: 'Exale Brewing').id, amount: 500, sweetner: 'Tshirts')
-Bid.create(listing_id: Listing.where(category: 'beer').sample.id, user_id: User.find_by(company_name: 'Fourpure').id, amount: 600, sweetner: '400 flyers')
-Bid.create(listing_id: Listing.where(category: 'beer').sample.id, user_id: User.find_by(company_name: 'Magic Rock').id, amount: 230, sweetner: 'Event give away tickets and poster')
-Bid.create(listing_id: Listing.where(category: 'beer').sample.id, user_id: User.find_by(company_name: 'Exale Brewing').id, amount: 400, sweetner: 'Social Media Marketing')
-Bid.create(listing_id: Listing.where(category: 'beer').sample.id, user_id: User.find_by(company_name: 'Enotria').id, amount: 300, sweetner:'Every 12, one free')
-Bid.create(listing_id: Listing.where(category: 'beer').sample.id, user_id: User.find_by(company_name: 'Speciality Drinks').id, amount: 800, sweetner: 'Free training to the staff')
-Bid.create(listing_id: Listing.where(category: 'beer').sample.id, user_id: User.find_by(company_name: 'Speciality Drinks').id, amount: 300, sweetner: 'Free training to the staff')
+Listing.where(category: 'beer').each do |listing|
+    Bid.create(listing_id: listing.id, user_id: User.find_by(company_name: 'Magic Rock').id, amount: 500, sweetner: 'free stock and branded glasses')
+    Bid.create(listing_id: listing.id, user_id: User.find_by(company_name: 'Fourpure').id, amount: 600, sweetner: 'branded glasses and events')
+    Bid.create(listing_id: listing.id, user_id: User.find_by(company_name: 'Exale Brewing').id, amount: 500, sweetner: 'Tshirts')
+    Bid.create(listing_id: listing.id, user_id: User.find_by(company_name: 'Enotria').id, amount: 300, sweetner:'Every 12, one free')
+    Bid.create(listing_id: listing.id, user_id: User.find_by(company_name: 'Speciality Drinks').id, amount: 800, sweetner: 'Free training to the staff')
+end
 
-
-Bid.create(listing_id: Listing.where(category: ''))
+Listing.where(category: 'wine').each do |listing|
+    Bid.create(listing_id: listing.id, user_id: User.find_by(company_name: 'Boutinot Wines').id, amount: 1000, sweetner: 'staff training and wine trips sponsored on us')
+    Bid.create(listing_id: listing.id, user_id: User.find_by(company_name: 'Flint Wines').id, amount: 500, sweetner: 'staff training and wine trips sponsored on us')
+    Bid.create(listing_id: listing.id, user_id: User.find_by(company_name: 'Alliance Wines').id, amount: 600, sweetner: 'staff training and wine trips sponsored on us')
+    Bid.create(listing_id: listing.id, user_id: User.find_by(company_name: 'Modal Wines').id, amount: 300, sweetner: 'free stock and social media marketing')
+    Bid.create(listing_id: listing.id, user_id: User.find_by(company_name: 'Thorman Hunt').id, amount: 1000, sweetner: 'staff training and wine trips sponsored on us')
+end
