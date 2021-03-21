@@ -31,7 +31,7 @@ class Api::V1::ListingsController < Api::V1::BaseController
   end
 
   def listing_params
-    params.require(:listing).permit(:category, :deal_start_date, :deal_end_date, :auction_end_time, :estimated_volume, :min_bid, :unit_type, :closed_bids, :description, :requirements, :auction_open)
+    params.permit(:category, :deal_start_date, :deal_end_date, :auction_end_time, :estimated_volume, :min_bid, :unit_type, :closed_bids, :description, :requirements, :auction_open)
   end
 
   def render_error
