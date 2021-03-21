@@ -44,7 +44,8 @@ ws.rows.each_with_index do |row, idx|
     email: "#{pubs_data['company_name'].split.join('.')}@email.com",
     password: "123456",
     company_name: pubs_data['company_name'],
-    location: location.split(',').first.downcase.capitalize.to_s
+    location: location.split(',').first.downcase.capitalize.to_s,
+    picture: pubs_pictures[idx - 1]
   )
 end
 
