@@ -15,12 +15,21 @@ session = GoogleDrive::Session.from_config("config.json")
 ws = session.spreadsheet_by_key("1B1Qx7BRc5hF8t6IvF6HRa82ktGnu17tiMiKcSZA5oxQ").worksheets.first #CHECK KEY IF IT IS THE RIGHT ONE OR THE TRIAL ONE
 
 pubs_pictures = [
-  'https://www.google.com/url?sa=i&url=https%3A%2F%2F99designs.com%2Finspiration%2Flogos%2Fpub&psig=AOvVaw19vX1dcbPDnqVWgiOK5qrw&ust=1616414894710000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCLDGwb6twe8CFQAAAAAdAAAAABAJ',
-  'https://www.google.com/url?sa=i&url=https%3A%2F%2F99designs.com%2Finspiration%2Flogos%2Fpub&psig=AOvVaw19vX1dcbPDnqVWgiOK5qrw&ust=1616414894710000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCLDGwb6twe8CFQAAAAAdAAAAABAD',
-  'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.pinterest.com%2Fpin%2F314829830185070441%2F&psig=AOvVaw19vX1dcbPDnqVWgiOK5qrw&ust=1616414894710000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCLDGwb6twe8CFQAAAAAdAAAAABAN',
-  'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.vectorstock.com%2Froyalty-free-vectors%2Fpub-logos-vectors&psig=AOvVaw19vX1dcbPDnqVWgiOK5qrw&ust=1616414894710000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCLDGwb6twe8CFQAAAAAdAAAAABAS',
-
-
+  'https://png.pngitem.com/pimgs/s/121-1219746_logo-de-pub-png-transparent-png.png',
+  'https://banner2.cleanpng.com/20180514/xpw/kisspng-pub-on-the-cedar-logo-bar-cider-5af966ab078217.1486248515262941870308.jpg',
+  'https://images-platform.99static.com//OJgt3FhZMNRIU0BdY7uVq0kYbkk=/277x1440:1043x2206/fit-in/500x500/99designs-contests-attachments/67/67025/attachment_67025375',
+  'https://images-platform.99static.com//A67IBdGosEogkI8qLXla0zHFYIE=/234x0:990x756/fit-in/500x500/99designs-contests-attachments/98/98320/attachment_98320987',
+  'https://vanimg.s3.amazonaws.com/bar-logos-14.jpg',
+  'https://i.pinimg.com/originals/4b/92/65/4b9265a935c48a98d585c7a6fb165e01.jpg',
+  'https://99designs-blog.imgix.net/blog/wp-content/uploads/2019/07/attachment_43377987-e1560831887787.png?auto=format&q=60&fit=max&w=930',
+  'https://images-platform.99static.com//3DTH2HJNY9QnX8HXBtG6sfScyfQ=/543x73:1248x778/fit-in/500x500/99designs-contests-attachments/88/88532/attachment_88532157',
+  'https://99designs-blog.imgix.net/blog/wp-content/uploads/2019/07/attachment_52575027-e1562319538455.jpeg?auto=format&q=60&fit=max&w=930',
+  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDjiQSMbzcXUHIqSdBmLZZHR9tBK3CWn-edA&usqp=CAU',
+  'https://i.pinimg.com/originals/71/a8/ba/71a8baae8529c3d43b4a5010320359f9.jpg',
+  'https://www.vandelaydesign.com/wp-content/uploads/bar-pub-logos.jpg',
+  'https://cdn.dribbble.com/users/2223870/screenshots/11612491/media/4135283af740478ff7935c95b1157db0.jpg?compress=1&resize=400x300',
+  'https://cms-assets.tutsplus.com/uploads/users/151/posts/32935/preview_image/bar-logo-preview.jpg',
+  'https://bpando.org//wp-content/uploads/02_The_Tokenhouse_Logo_Designers_Anonymous_on_BPO.jpg'
 ]
 
 headers = ws.rows.first
