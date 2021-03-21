@@ -20,7 +20,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :listings, only: %I[index show create update]
       resources :sessions, only: [ :create, :delete ]
-      resources :bids, only: %I[show create update]
+      resources :bids, only: %I[show update create]
       post 'login', to: 'sessions#login'
       get 'pages/profile', to: 'pages#profile'
     end
